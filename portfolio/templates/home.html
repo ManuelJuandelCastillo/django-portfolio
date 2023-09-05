@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load static %}
+
+<header class="row">
+    <div class="col-md-4">
+        <img src="{% static 'iconoContacto.png' %}" alt="" class="img-fluid">
+    </div>
+    <div class="col-md-8 my-auto">
+        <h1>I am <strong>Manuel del Castillo</strong></h1>
+        <h3>Python developer</h3>
+
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia, consequuntur rem unde mollitia eos libero. Quaerat inventore accusamus commodi vel sint consectetur dignissimos, maxime quisquam natus repellendus ab assumenda recusandae illo praesentium, vitae fugit. Id, dignissimos sapiente laboriosam aliquid iure impedit, perspiciatis, dolorum eligendi animi optio nam fugiat. Facilis nostrum inventore distinctio est quam sunt voluptatem ipsum voluptates in unde aliquid similique saepe, temporibus totam voluptas dolor architecto dolorem, sint corrupti, blanditiis velit molestias? Fugiat veniam asperiores aperiam, ullam culpa earum quam sed itaque cumque deserunt possimus ratione sint non exercitationem quidem iste eos? Possimus explicabo illo provident in cum.</p>
+    </div>
+</header>
+
+<div class="row my-4 text-center">
+
+    <h3>My projects</h3>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+    
+    {% for project in projects %}
+    
+    <div class="col-md-4 p-4">
+        <div class="card bg-black card-hover">
+            <img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top">
+            
+            <div class="card-body text-light">        
+                <h2> {{ project.title }} </h2>
+                <p>{{ project.description }}</p>
+                
+                {% if project.url %}
+                <a href="{{project.url}}" class="btn btn-sm btn-primary" target="_blank">{{project.url}}</a>
+                {% endif %}
+                
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+{% endfor %} 
+
+{% endblock %}
